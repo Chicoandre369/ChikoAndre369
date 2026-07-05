@@ -93,8 +93,12 @@ header h1 {
 }
 
 header p {
-  color: #555;
+  color: #555;git add .
   margin-bottom: 1.5rem;
+}
+
+header {
+  text-align: center;
 }
 
 main h2 {
