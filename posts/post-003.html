@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Post 3: Unidad 1 - Fundamentos de Ciberseguridad</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+  <div class="bg-fixed">
+    <div class="moon"></div>
+    <div class="cloud cloud-1"></div>
+    <div class="cloud cloud-2"></div>
+    <div class="cloud cloud-3"></div>
+    <div class="grass"></div>
+  </div>
+
+  <div class="content">
+    <header>
+      <h1>Unidad 1: Fundamentos de Ciberseguridad</h1>
+      <p><a href="../index.html">&larr; Volver al inicio</a></p>
+    </header>
+
+    <main>
+      <p>
+        La ciberseguridad en estos tiempos es más crucial que nunca. Pero,
+        ¿qué entendemos exactamente por ciberseguridad? Es la práctica de
+        proteger sistemas, redes y programas de ataques digitales. Estos
+        ataques suelen tener como objetivo acceder, alterar o destruir
+        información sensible; extorsionar a los usuarios o interrumpir
+        procesos comerciales normales. Implementar medidas efectivas de
+        ciberseguridad es particularmente desafiante hoy en día porque hay
+        más dispositivos conectados que personas en el mundo, y los
+        atacantes se vuelven cada vez más innovadores.
+      </p>
+
+      <h2>Beneficios de la ciberseguridad</h2>
+      <ul>
+        <li><strong>A nivel personal:</strong> protege la identidad, las
+          finanzas y la privacidad frente al robo de datos, fraudes y
+          suplantación de identidad.</li>
+        <li><strong>A nivel empresarial:</strong> evita pérdidas económicas,
+          protege la reputación de la marca, asegura la continuidad
+          operativa y genera confianza con clientes y socios.</li>
+        <li><strong>A nivel nacional:</strong> resguarda infraestructura
+          crítica (energía, agua, banca, salud, transporte), la soberanía
+          de los datos del Estado y la estabilidad económica del país.</li>
+      </ul>
+
+      <h2>Amenazas internas y externas</h2>
+      <p>
+        Las <strong>amenazas externas</strong> provienen de actores ajenos a
+        la organización: cibercriminales, grupos de ransomware, hacktivistas
+        o incluso actores patrocinados por Estados. Suelen explotar
+        vulnerabilidades técnicas o engañar a los usuarios (phishing,
+        malware) para entrar a la red.
+      </p>
+      <p>
+        Las <strong>amenazas internas</strong> provienen de personas dentro
+        de la organización: empleados, ex empleados, contratistas o socios
+        con acceso legítimo. Pueden actuar por error (mal manejo de datos,
+        clic en un enlace malicioso) o de forma intencional (robo de
+        información, sabotaje). Son especialmente peligrosas porque ya
+        tienen credenciales y conocimiento interno del sistema.
+      </p>
+
+      <h3>El caso de los empleados descontentos</h3>
+      <p>
+        Uno de los riesgos internos más peligrosos son los
+        <strong>empleados descontentos</strong>, sobre todo aquellos que
+        están siendo desvinculados o que tienen acceso privilegiado. Pueden
+        filtrar información, sabotear sistemas o dejar "puertas traseras"
+        antes de irse. Para mitigar este riesgo:
+      </p>
+      <ul>
+        <li>Aplicar el <strong>principio de mínimo privilegio</strong>
+          (cada persona solo accede a lo que necesita para su trabajo).</li>
+        <li>Revocar accesos de inmediato al momento de la desvinculación.</li>
+        <li>Monitorear actividad inusual con herramientas SIEM.</li>
+        <li>Fomentar un buen clima laboral y canales de comunicación, ya que
+          muchos casos nacen de conflictos no resueltos.</li>
+        <li>Realizar auditorías periódicas de accesos y permisos.</li>
+      </ul>
+
+      <h2>Habilidades técnicas y transferibles</h2>
+      <p>
+        Para trabajar en ciberseguridad se necesita una combinación de dos
+        tipos de habilidades:
+      </p>
+      <ul>
+        <li><strong>Habilidades técnicas:</strong> redes y protocolos (TCP/IP),
+          sistemas operativos (Linux, Windows), programación básica
+          (Python, SQL), uso de firewalls y herramientas SIEM, análisis de
+          logs, criptografía básica y respuesta ante incidentes.</li>
+        <li><strong>Habilidades transferibles:</strong> pensamiento crítico
+          y resolución de problemas, comunicación clara (explicar riesgos
+          técnicos a personas no técnicas), atención al detalle, trabajo en
+          equipo, ética profesional y capacidad de aprendizaje continuo
+          (el panorama de amenazas cambia constantemente).</li>
+      </ul>
+
+      <h2>PII y SPII: ¿cuál es la diferencia?</h2>
+      <p>
+        <strong>PII</strong> (Personally Identifiable Information / Información
+        de Identificación Personal) es cualquier dato que pueda usarse para
+        identificar a una persona: nombre completo, dirección, correo
+        electrónico, número de teléfono, RUT.
+      </p>
+      <p>
+        <strong>SPII</strong> (Sensitive PII) es un subconjunto de la PII que,
+        si se filtra, puede causar un daño mucho mayor a la persona: datos
+        biométricos, información de salud, orientación sexual, información
+        financiera (tarjetas, cuentas bancarias), antecedentes penales o
+        credenciales de acceso (contraseñas).
+      </p>
+      <p>
+        La diferencia clave está en el <strong>nivel de sensibilidad y el
+        impacto de su exposición</strong>: filtrar un correo electrónico
+        (PII) es grave, pero filtrar una clave bancaria o un diagnóstico
+        médico (SPII) puede tener consecuencias mucho más severas, por lo
+        que requiere controles de seguridad más estrictos.
+      </p>
+
+      <h2>¿Qué hacer si tu empresa está siendo atacada?</h2>
+      <ol>
+        <li><strong>Contener el incidente:</strong> aislar los sistemas
+          afectados de la red para evitar que el ataque se propague.</li>
+        <li><strong>Activar el plan de respuesta a incidentes</strong> y
+          notificar al equipo de seguridad (CSIRT) o proveedor externo.</li>
+        <li><strong>Preservar evidencia:</strong> no borrar logs ni
+          reiniciar equipos comprometidos, ya que se necesitan para el
+          análisis forense.</li>
+        <li><strong>Evaluar el alcance:</strong> qué sistemas y datos fueron
+          comprometidos.</li>
+        <li><strong>Notificar</strong> a las autoridades correspondientes
+          (en Chile, a la ANCI si corresponde según la Ley Marco de
+          Ciberseguridad) y, si hay datos personales afectados, a los
+          titulares de esos datos.</li>
+        <li><strong>Erradicar la amenaza</strong> (eliminar malware, cerrar
+          la vulnerabilidad explotada) y luego recuperar los sistemas desde
+          respaldos limpios.</li>
+        <li><strong>Lecciones aprendidas:</strong> documentar el incidente y
+          actualizar controles para que no vuelva a ocurrir.</li>
+      </ol>
+
+      <h2>Identificación de vulnerabilidades y evaluación de riesgos</h2>
+      <p>
+        Identificar vulnerabilidades implica escanear sistemas, redes y
+        aplicaciones en busca de fallas conocidas (software desactualizado,
+        configuraciones débiles, puertos abiertos innecesarios). Se suele
+        usar un <strong>escáner de vulnerabilidades</strong> y pruebas de
+        penetración (pentesting).
+      </p>
+      <p>
+        La <strong>evaluación de riesgos</strong> va un paso más allá:
+        combina la probabilidad de que una vulnerabilidad sea explotada con
+        el impacto que tendría si ocurre. Con eso se prioriza qué se arregla
+        primero (fórmula simplificada: <em>Riesgo = Probabilidad ×
+        Impacto</em>). No todas las vulnerabilidades se resuelven al mismo
+        tiempo; se priorizan las de mayor riesgo real para el negocio.
+      </p>
+
+      <h2>Herramientas SIEM</h2>
+      <p>
+        <strong>SIEM</strong> (Security Information and Event Management)
+        es una herramienta que recolecta y analiza en tiempo real los logs
+        y eventos de toda la infraestructura de una organización (servidores,
+        firewalls, endpoints, aplicaciones), para detectar actividad
+        sospechosa y generar alertas.
+      </p>
+      <p><strong>Beneficios principales:</strong></p>
+      <ul>
+        <li>Detección temprana de incidentes (reduce el tiempo que un
+          atacante permanece sin ser detectado).</li>
+        <li>Correlación de eventos de múltiples fuentes para identificar
+          patrones de ataque.</li>
+        <li>Facilita el cumplimiento normativo, generando reportes y
+          registros auditable.</li>
+        <li>Centraliza la visibilidad de seguridad en un solo panel.</li>
+      </ul>
+
+      <h2>Tipos de ataques más comunes</h2>
+      <ul>
+        <li><strong>Phishing:</strong> correos o mensajes falsos que
+          suplantan a una entidad confiable (banco, empresa) para robar
+          credenciales o instalar malware.</li>
+        <li><strong>Spear phishing:</strong> una variante de phishing pero
+          dirigida y personalizada a una persona específica, usando
+          información real sobre ella para parecer más creíble.</li>
+        <li><strong>Ingeniería social:</strong> manipulación psicológica
+          para que la víctima entregue información o realice una acción
+          (ej. el caso de Redbanc, con una falsa oferta de trabajo).</li>
+        <li><strong>Virus / malware informático:</strong> software
+          malicioso diseñado para dañar, robar o secuestrar información
+          (incluye ransomware, troyanos, spyware).</li>
+        <li><strong>BEC (Business Email Compromise):</strong> el atacante
+          suplanta o compromete el correo de un ejecutivo o proveedor para
+          engañar a la empresa y lograr transferencias de dinero
+          fraudulentas.</li>
+        <li><strong>Ataques de fuerza bruta:</strong> intentos automatizados
+          de miles de combinaciones de contraseñas hasta acertar.</li>
+        <li><strong>Ransomware:</strong> cifra los archivos de la víctima y
+          exige un pago (rescate) para liberarlos.</li>
+      </ul>
+
+      <h2>La Tríada CIA (CID): Confidencialidad, Integridad y Disponibilidad</h2>
+      <p>
+        Es el modelo base de la ciberseguridad. Sus tres pilares son:
+      </p>
+      <ul>
+        <li><strong>Confidencialidad:</strong> solo las personas autorizadas
+          pueden acceder a la información. <em>Ejemplo:</em> cifrar los
+          datos de tarjetas de crédito para que, aunque sean interceptados,
+          no puedan leerse.</li>
+        <li><strong>Integridad:</strong> los datos no deben ser alterados
+          sin autorización, y deben ser confiables. <em>Ejemplo:</em> usar
+          checksums o firmas digitales para verificar que un archivo
+          descargado no fue modificado.</li>
+        <li><strong>Disponibilidad:</strong> los sistemas y datos deben estar
+          accesibles cuando se necesiten. <em>Ejemplo:</em> tener servidores
+          redundantes para que, si uno falla, el sitio web siga funcionando
+          (esto es justamente lo que rompen los ataques DDoS).</li>
+      </ul>
+
+      <h2>NIST Cybersecurity Framework (CSF)</h2>
+      <p>
+        El NIST CSF es un marco de referencia (creado por el Instituto
+        Nacional de Estándares y Tecnología de EE.UU., pero usado
+        globalmente, incluido en Chile) que organiza la gestión de
+        ciberseguridad en funciones clave:
+      </p>
+      <ul>
+        <li><strong>Identificar:</strong> entender los activos, riesgos y
+          el contexto del negocio.</li>
+        <li><strong>Proteger:</strong> implementar controles para limitar
+          el impacto de un posible incidente.</li>
+        <li><strong>Detectar:</strong> identificar eventos de seguridad de
+          forma oportuna.</li>
+        <li><strong>Responder:</strong> actuar frente a un incidente
+          detectado.</li>
+        <li><strong>Recuperar:</strong> restaurar servicios y capacidades
+          afectadas por el incidente.</li>
+      </ul>
+
+      <h2>CISSP y sus 8 dominios</h2>
+      <p>
+        La certificación <strong>CISSP</strong> (Certified Information
+        Systems Security Professional), del organismo (ISC)², es uno de los
+        estándares más reconocidos a nivel mundial para profesionales de
+        ciberseguridad. Se basa en 8 dominios de conocimiento (CBK - Common
+        Body of Knowledge):
+      </p>
+      <ol>
+        <li><strong>Seguridad y gestión de riesgos:</strong> políticas,
+          ética, cumplimiento normativo y gestión de riesgos.</li>
+        <li><strong>Seguridad de activos:</strong> clasificación y
+          protección de la información según su sensibilidad (PII/SPII).</li>
+        <li><strong>Arquitectura e ingeniería de seguridad:</strong> diseño
+          seguro de sistemas, criptografía.</li>
+        <li><strong>Seguridad en comunicaciones y redes:</strong> diseño
+          seguro de arquitecturas de red.</li>
+        <li><strong>Gestión de identidad y acceso (IAM):</strong> control de
+          quién accede a qué recursos.</li>
+        <li><strong>Evaluación y pruebas de seguridad:</strong> auditorías,
+          pentesting, validación de controles.</li>
+        <li><strong>Operaciones de seguridad:</strong> monitoreo, respuesta
+          a incidentes, recuperación ante desastres.</li>
+        <li><strong>Seguridad en el desarrollo de software:</strong>
+          integrar buenas prácticas de seguridad en el ciclo de vida del
+          desarrollo (DevSecOps).</li>
+      </ol>
+      <p>
+        Son importantes porque dan una visión <strong>integral</strong> de
+        la ciberseguridad: no basta con saber configurar un firewall, un
+        profesional serio debe entender también la gestión de riesgos, la
+        ética y las políticas, ya que la seguridad no es solo técnica, es
+        también organizacional.
+      </p>
+
+      <h2>Ciclo de vida de la seguridad, marcos y controles</h2>
+      <p>
+        El <strong>ciclo de vida de la seguridad</strong> es un proceso
+        continuo (no un proyecto con fin), que generalmente sigue estas
+        etapas: identificar activos y riesgos &rarr; diseñar controles
+        &rarr; implementar &rarr; monitorear &rarr; responder a incidentes
+        &rarr; mejorar continuamente.
+      </p>
+      <p>
+        Un <strong>marco (framework)</strong> es una guía estructurada de
+        buenas prácticas (como NIST CSF, ISO 27001 o CIS Controls) que
+        ayuda a una organización a construir su programa de seguridad de
+        forma ordenada, sin partir de cero.
+      </p>
+      <p>
+        Los <strong>controles</strong> son las medidas concretas que se
+        implementan para reducir un riesgo específico. Se dividen en:
+      </p>
+      <ul>
+        <li><strong>Controles administrativos:</strong> políticas,
+          procedimientos, capacitaciones.</li>
+        <li><strong>Controles técnicos:</strong> firewalls, cifrado,
+          autenticación multifactor.</li>
+        <li><strong>Controles físicos:</strong> cámaras, control de acceso
+          a salas de servidores, cerraduras.</li>
+      </ul>
+      <p>
+        Las <strong>directrices</strong> son recomendaciones flexibles sobre
+        cómo cumplir una política, mientras que un <strong>control</strong>
+        es la implementación específica y medible de esa recomendación.
+      </p>
+
+      <h2>Ética en ciberseguridad</h2>
+      <p>
+        Un profesional de ciberseguridad tiene acceso a información muy
+        sensible, por lo que la ética es central: actuar con integridad,
+        respetar la privacidad de las personas, no abusar de los privilegios
+        de acceso, reportar vulnerabilidades de forma responsable
+        (<em>responsible disclosure</em>) en vez de explotarlas, y seguir
+        siempre el marco legal vigente.
+      </p>
+
+      <h2>Marco normativo en Chile</h2>
+      <ul>
+        <li><strong>Ley Marco de Ciberseguridad (Ley 21.663, 2024):</strong>
+          establece la Agencia Nacional de Ciberseguridad (ANCI), define
+          obligaciones para instituciones públicas y privadas que operan
+          infraestructura crítica, y exige reportar incidentes.</li>
+        <li><strong>Ley de Protección de Datos Personales (actualizada,
+          en línea con estándares como el RGPD europeo):</strong> regula
+          cómo las empresas deben recolectar, tratar y proteger los datos
+          personales de las personas en Chile.</li>
+        <li><strong>ANCI:</strong> el organismo fiscalizador que audita el
+          cumplimiento y puede aplicar multas ante incumplimientos.</li>
+      </ul>
+
+      <h2>Implementación de procesos de seguridad y el RGPD</h2>
+      <p>
+        El <strong>RGPD</strong> (Reglamento General de Protección de Datos
+        de la Unión Europea) es una referencia mundial en protección de
+        datos, y muchos países —incluido Chile— han modernizado sus propias
+        leyes inspirándose en sus principios: consentimiento explícito para
+        usar datos personales, derecho de las personas a acceder, corregir o
+        eliminar sus datos, y notificación obligatoria de brechas de
+        seguridad en plazos acotados. Implementar procesos de seguridad
+        alineados a estos principios implica: mapear qué datos se recolectan,
+        clasificarlos (PII/SPII), definir quién puede acceder a ellos, y
+        documentar cómo se protegen durante todo su ciclo de vida.
+      </p>
+
+      <h2>Cierre de la Unidad 1</h2>
+      <p>
+        Esta primera unidad me deja claro que la ciberseguridad no es solo
+        "instalar un antivirus": es un enfoque integral que combina
+        tecnología, procesos, personas y marco legal. En las próximas
+        unidades espero profundizar en herramientas prácticas (Linux, SQL,
+        Python aplicado a seguridad) para ir conectando la teoría con
+        laboratorios reales. y asi poder aplicar lo aprendido en mis diferentes proyectos.
+      </p>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 Dre</p>
+    </footer>
+  </div>
+
+</body>
+</html>
