@@ -23,8 +23,198 @@
 
     <main class="content-secondary">
       <div class="featured-post">
-        <h3><!-- Título de tu proyecto --></h3>
-        <p><!-- Aquí escribes tú la descripción --></p>
+        <h3>Adios papel!, Hola mundo!</h3>
+        <p># App de Pedidos para Verdulería "EL CASTILLO DE LA FRUTA"
+
+Una herramienta simple, hecha en HTML, CSS y JavaScript, que ayuda a convertir los pedidos que llegan por WhatsApp en hojas de Word listas para imprimir. Nació de una necesidad real: en la verdulería donde trabajo, todos los pedidos se anotaban a mano, y con el tiempo eso se volvía lento y propenso a errores.
+
+> **Estado del proyecto:** en desarrollo activo. Se usa día a día en el negocio real, y a medida que aparecen errores o nuevas necesidades, se va mejorando.
+
+---
+
+## Presentación
+
+Este programa toma el texto de un pedido (tal como lo escribe el cliente por WhatsApp), lo analiza automáticamente para detectar productos, cantidades y unidades, y genera un documento Word con varios pedidos ordenados por hoja, listo para imprimir. También incluye un catálogo de productos, registro de clientes, control de deudas (fiado) y un pequeño reporte de ventas del día.
+
+No es un proyecto hecho para una universidad ni una demostración: es una herramienta que uso yo mismo en mi trabajo, así que cada función que tiene fue agregada porque realmente la necesitábamos y cada dia se fue probando el programa para revisar errores. 
+
+---
+
+## El problema
+
+En la verdulería donde trabajo, los clientes hacen sus pedidos por WhatsApp, escritos de forma bastante libre. Por ejemplo:
+
+- "hola casero buenos días necesito lo siguiente 
+dos kilos de esas manzanas lindas que tienen 
+1/2 de kiwisitos jeje , y por que agregar 1 quilo de paltita, muchas gracias chiquillos."
+
+- "hola buenas chicos necesito fruta y verdura, envío la siguiente lista
+0 limon 
+1 perejil y un cilantro
+3 tomates 
+3peras
+5 manzanas fujis 
+0 sandia
+0 platanos
+0 piña"
+
+- "aquí dejo mi pedido wapos 
+quiero 3 kilos de manzana 1 kilo de frutilla unos dulcesitos ricos de esos que tienen agregen tambien 30 huevos de esos que lleva para su casa muchas gracias."
+
+Antes de este programa, **todo el registro de pedidos se hacía a mano, en papel**. Eso significaba copiar cada pedido, calcular los totales y ordenar todo manualmente antes de empezar a prepararlo. Con el volumen de pedidos que se maneja, este método era lento y aumentaba la posibilidad de anotar mal una cantidad o perder un pedido.
+
+Además, cada cliente escribe distinto: algunos ponen "kg", otros "k", otros solo un punto o guion antes del número, y algunos ni siquiera indican si es en kilos o en unidades. Cualquier herramienta tenía que lidiar con este desorden.
+
+---
+
+## Objetivo
+
+El objetivo era simple: reducir el tiempo que se pierde pasando los pedidos de WhatsApp a un formato ordenado y imprimible, sin tener que escribir todo de nuevo a mano, y ahorrando papel agrupando varios pedidos por hoja.
+
+No buscaba automatizar todo el negocio de una vez, sino resolver primero el problema más molesto del día a día: pasar el pedido desordenado del WhatsApp a algo ordenado y listo para trabajar.
+
+---
+
+## Cómo fui desarrollando el proyecto
+
+El desarrollo llevo alrededor de **3 a 6 meses**, trabajando en el proyecto en mis tiempos libres, entre el trabajo y mis estudios.
+
+La idea fue creciendo por etapas, más o menos así:
+
+1. **Primera versión — lo básico:** una pantalla donde pegar el texto del pedido y que la app intentara reconocer productos y cantidades, generando después una hoja de Word simple.
+2. **Ajustes de reconocimiento de texto:** como los pedidos llegan muy desordenados (saludos antes del pedido, unidades escritas de formas distintas, productos sin cantidad indicada), tuve que ir afinando bastante la lógica que "lee" el texto del pedido. Agregué reglas para cosas como: si no se indica cantidad, asumir 1; si no se indica unidad, usar la unidad habitual del producto; unidades especiales como gramos; y una lista de productos que siempre se venden por unidad (como cebolla, lechuga, pimentón, etc.), sin importar si el cliente escribió "kg".
+3. **Catálogo de productos propio:** en vez de armar la lista de productos en la conversación con la IA, decidí ir agregando yo mismo los productos típicos de la verdulería directamente desde la app, junto con sus alias (formas distintas en que la gente los escribe).
+4. **Funciones para el día a día del negocio:** con el tiempo fui agregando cosas que hacían falta en la operación real: guardar los pedidos pendientes aunque cierre el navegador (usando "localStorage"), poder editar un pedido antes de generar el documento, un historial de documentos ya generados (con opción de reimprimir), registro de clientes con su deuda si compran fiado, y un reporte simple de ventas del día.
+5. **Pruebas con pedidos reales y corrección de errores:** ya con la app funcionando, la fui probando con pedidos reales de WhatsApp, y ahí aparecieron varios errores que no había considerado al principio (los detallo abajo, en la sección de errores). Esta fue la parte donde más aprendí, porque tuve que revisar con calma cómo funcionaba realmente el negocio antes de asumir que el código estaba "bien".
+
+Todavía sigo trabajando en el proyecto y corrigiendo cosas a medida que las pruebas del día a día las van sacando a la luz.
+
+---
+
+## Funcionalidades
+
+Lo que la app permite hacer hoy:
+
+- **Analizar el texto de un pedido de WhatsApp** y detectar automáticamente productos, cantidades y unidades (kg, gramos o unidades).
+- **Reconocer pedidos escritos de forma desordenada:** con saludos antes del pedido, distintas formas de escribir la unidad, cantidades escritas en número o en palabras ("dos kilos", "tres unidades"), y varios productos mencionados en una misma línea, con o sin la palabra "y".
+- **Revisar y corregir antes de guardar:** una vez detectado el pedido, se puede editar cada línea (producto, cantidad, unidad y subtotal) antes de agregarlo a la hoja.
+- **Catálogo de productos propio y editable**, con nombre, unidad habitual y alias (formas distintas en que los clientes escriben el mismo producto), más un buscador para encontrarlos rápido.
+- **Registro de clientes**, con nombre, dirección y teléfono, y autocompletado al escribir un pedido nuevo.
+- **Pedidos fiados**, que se suman automáticamente a la deuda del cliente, con opción de abonar después.
+- **Agrupar varios pedidos por hoja de Word** (2, 3 o 4 pedidos por hoja, a elección) para ahorrar papel al imprimir.
+- **Editar o eliminar un pedido** ya agregado a la hoja actual, antes de generar el documento.
+- **Historial de documentos generados**, con opción de volver a imprimir un documento anterior.
+- **Reporte simple del día**, con el total vendido y los productos más pedidos.
+- **Exportar el catálogo y la base de datos de productos a CSV**, para tenerlos como respaldo o editarlos fuera de la app.
+- **Todo funciona en el navegador**, sin necesidad de instalar nada ni depender de internet una vez cargada la página (los datos se guardan localmente con "localStorage").
+
+---
+
+## Errores encontrados y soluciones
+
+Esta es la sección que más me interesa mostrar, porque refleja el proceso real de desarrollo: probar, encontrar fallas, entenderlas y corregirlas.
+
+### Error 1: la cantidad multiplicaba el subtotal
+
+**Problema:** al ingresar un pedido, el programa calculaba el subtotal de cada producto multiplicando la cantidad por el valor ingresado, en vez de usar ese valor directamente.
+
+**Por qué ocurría:** el código estaba pensado como si el "precio" ingresado fuera un precio por kilo o por unidad, y lo multiplicaba por la cantidad para sacar el subtotal. Pero así no es como trabajamos en la verdulería: nosotros pesamos o contamos el producto, calculamos el valor a mano, y ese valor final es el que se ingresa directamente. Cantidad y subtotal debían ser datos independientes, y el programa no lo estaba tratando así.
+
+**Solución:** cambié todos los cálculos (en la vista previa, en el ticket del pedido, en el documento Word, en el historial y en el registro de ventas) para que el subtotal ingresado se use tal cual, sin multiplicarlo por la cantidad. La cantidad quedó solo como información de referencia (por ejemplo, "2 kg"), sin participar en ningún cálculo de dinero.
+
+**Resultado:** ahora, si ingreso Tomate 2 kg con subtotal $4.500, Papa 3 kg con $6.000 y Cebolla 1 kg con $2.000, el total del pedido da $12.500 (la suma real de los subtotales), en vez de un número inflado por la multiplicación.
+
+### Error 2: se perdían productos y las cantidades quedaban mal cuando el pedido usaba números en palabras
+
+**Problema:** en un pedido real, un cliente escribió *"hola casero quiero dos quilos de manzana tres de pera y dos de uva"*. El programa detectó solo Manzana y Uva (perdiendo la Pera por completo), y además puso cantidad "1" en vez de las cantidades reales.
+
+**Por qué ocurría:** eran tres fallas que se juntaban en el mismo pedido:
+1. El programa solo reconocía cantidades escritas en números ("2", "3"), no en palabras ("dos", "tres").
+2. La palabra "quilos" (una forma común de escribir "kilos") no estaba en la lista de unidades que el programa sabía reconocer.
+3. El programa separaba los distintos productos de un pedido buscando la palabra "y" entre ellos. Como en esa frase no había un "y" entre "manzana" y "tres de pera", todo ese tramo se trataba como un solo producto, y la pera se perdía.
+
+**Solución:** agregué un traductor de números en palabras a dígitos (de "uno" a "cincuenta", más cosas como "docena" o "media docena"), sumé "quilos" como forma válida de "kilos", y mejoré la separación de productos para que también corte cada vez que aparece una nueva cantidad dentro del mismo pedido, aunque no haya un "y" de por medio.
+
+**Resultado:** ese mismo pedido ahora se reconoce completo y con las cantidades correctas: Manzana (2), Pera (3) y Uva (2). Antes de dar por cerrado el cambio, además probé varios pedidos anteriores que ya funcionaban bien, para asegurarme de no haber roto nada.
+
+> *Nota: si en el futuro se encuentran más errores durante las pruebas, esta sección se irá actualizando con el mismo formato (Problema / Por qué ocurría / Solución / Resultado).*
+
+---
+
+## Tecnologías utilizadas
+
+Lo mantuve intencionalmente simple, sin frameworks ni librerías externas:
+
+- **HTML** — estructura de la app (un solo archivo).
+- **CSS** — el diseño esta facilitado por IA
+- **JavaScript (vanilla, sin frameworks)** — toda la lógica: el análisis de texto de los pedidos, el catálogo, los clientes, los cálculos y la generación del documento.
+- **"localStorage" del navegador** — para guardar el catálogo, los clientes, los pedidos pendientes, el historial y el registro de ventas, sin necesidad de un servidor o base de datos externa.
+- **Generación de archivos `.doc`** — el documento de pedidos se genera armando una tabla en HTML y descargándola como archivo Word, sin depender de ninguna librería externa para eso.
+
+---
+
+## Aprendizajes
+
+Algunas cosas que aprendí (o seguí aprendiendo) haciendo este proyecto:
+
+- A no asumir que el código "está bien" solo porque compila o corre sin errores: los errores reales aparecen recién cuando alguien usa el programa en la vida real, con datos reales y desordenados.
+- A escuchar cómo funciona realmente el negocio antes de programar una solución. El error del subtotal, por ejemplo, pasó porque programé pensando en una lógica que tenía sentido para mí, pero no correspondía a cómo trabajamos en la verdulería.
+- A escribir reglas de análisis de texto (parsing) para lenguaje natural desordenado, que es bastante distinto a trabajar con datos ya ordenados o formularios estructurados.
+- A probar los cambios contra casos que ya funcionaban antes de dar un arreglo por terminado, para no arreglar un error y sin darme cuenta romper algo que ya andaba bien.
+- A guardar y organizar datos en el navegador usando `localStorage`, sin necesidad de un backend.
+
+---
+
+## Próximas mejoras
+
+**Ya desarrollado:**
+- Todo lo listado en la sección de Funcionalidades.
+
+**Ideas para más adelante (todavía no desarrolladas):**
+- Agregar el logo del negocio directamente en la hoja impresa, junto a las tablas de pedidos.
+- Detectar mejor la unidad por defecto para frutas y verduras cuando el cliente no la especifica (por ejemplo, que la fruta se asuma en kg en vez de unidades si no se indica nada).
+- Pasar el proyecto a una versión pensada para tablet o PC de venta, tal como estaba en la idea original.
+- Evaluar una base de datos real (en vez de `localStorage`) si el negocio sigue creciendo y se necesita compartir la información entre varios dispositivos.
+
+---
+
+## Conclucíon
+
+Este proyecto partió como una forma de resolver un problema bien concreto del día a día en mi trabajo, y terminó siendo también mi manera de aprender a programar en serio: enfrentando errores reales, con datos reales y desordenados, en vez de ejercicios de práctica. Todavía le faltan cosas por mejorar, pero verlo funcionando de verdad en la verdulería, y corrigiéndolo cada vez que aparece un problema nuevo, es la parte que más me ha gustado de todo el proceso.
+
+---
+
+## Capturas de pantalla
+
+*(Agregar aquí capturas de la app: pantalla de nuevo pedido, revisión de productos detectados, lista de pedidos pendientes, y un ejemplo del documento Word generado.)*
+
+---
+
+## el origen del proyecto y agradecimientos 
+
+Este proyecto comenzó de una manera bastante fortuita, aunque la idea ya llevaba un tiempo dando vueltas en mi cabeza.
+
+En un momento, mi jefe comenzó a intentar realizar por su cuenta los pedidos desde el computador, apoyándose en herramientas como Word y la inteligencia artificial. El problema era que Word nos limitaba bastante al momento de crear tablas ordenadas, y las herramientas de IA no siempre generaban los archivos exactamente como los necesitábamos.
+
+Ahí pensé que quizás era mi momento de aportar con algo que pudiera ser realmente útil. Le comenté que podía intentar crear un programa sencillo que nos ayudara a manejar mejor los pedidos que recibíamos por WhatsApp, dejando atrás parte del trabajo que hacíamos escribiendo la información en papel. Además, de esta manera podía ayudarlo a evitar el tiempo que estaba dedicando a intentar crear estos documentos por su cuenta.
+
+A partir de ahí decidí tomarme el proyecto en serio y comenzar a construirlo paso a paso. Fui aprendiendo mientras avanzaba, encontrándome con problemas que muchas veces no sabía cómo solucionar al principio. Cada error terminó siendo también una oportunidad para entender un poco más sobre programación y sobre cómo transformar una necesidad real en una herramienta que pudiera utilizarse en el día a día.
+
+También quiero ser transparente con algo: no hice este proyecto completamente solo. Durante el desarrollo me apoyé bastante en mi "amiguita IA". Para mí, utilizarla fue una herramienta de aprendizaje y apoyo. Sin tener todavía una forma clara de buscar información, entender documentación o encontrar rápidamente la solución a determinados problemas, probablemente me habría tomado muchísimo más tiempo llegar hasta donde llegué.
+
+Pero la IA no hizo el proyecto por mí. Yo tuve que entender el problema, probar las soluciones, equivocarme, modificar el código, probar nuevamente y decidir qué necesitábamos realmente en nuestro trabajo. Esa parte del proceso fue, probablemente, uno de los aprendizajes más importantes para mí.
+
+También quiero agradecer especialmente a mi equipo de la verdulería: Fernando, Claudio y César, por el apoyo, la paciencia para asumir los errores que fueron apareciendo durante las pruebas y, sobre todo, por motivarme a seguir mejorando el proyecto.
+
+Quiero agradecer también especialmente a mi novia, por tenerme paciencia durante todo este proceso. Hubo días en los que teníamos pensado compartir nuestro tiempo juntos, pero ella entendió que para mí era importante terminar mis proyectos y seguir avanzando en lo que estoy aprendiendo. Me dio ese tiempo, me apoyó y tuvo la paciencia necesaria para entender mis momentos de estudio y programación.
+
+Gracias por apoyarme, entenderme y acompañarme en este camino. Te amo. ❤️
+
+Finalmente, quiero dedicar unas palabras a mi madre, que me acompaña desde el cielo. Su recuerdo es una de las motivaciones que tengo día a día para seguir estudiando, trabajando, creando mis propios proyectos y también disfrutando el tiempo libre. Gran parte de las ganas de seguir adelante vienen de ahí.
+
+Este proyecto quizás comenzó simplemente como una idea para solucionar un problema de los pedidos, pero terminó convirtiéndose también en una experiencia de aprendizaje. Me permitió llevar lo que estoy aprendiendo en informática a un problema real, equivocarme, buscar soluciones y ver cómo algo que comenzó como una idea podía terminar convirtiéndose en una herramienta útil para nuestro trabajo.
+
+Y este es solo el comienzo.</p>
         <a class="read-more-btn" href="TU-LINK-DE-GITHUB" target="_blank" rel="noopener">Ver código en GitHub</a>
       </div>
     </main>
